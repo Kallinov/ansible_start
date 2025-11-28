@@ -1,0 +1,7 @@
+- name: Pull tarball
+  copy:
+    src: /home/asdf/ansible_start/new.tar
+    dest: /var/www/html/
+
+- name: Unzip tarball
+  command: tar -xf /var/www/html/new.tar -C /var/www/html/

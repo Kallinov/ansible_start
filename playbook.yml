@@ -1,0 +1,8 @@
+- name: Configure server and deploy site
+  hosts: myhosts
+
+  roles:
+    - ssh
+    - base
+    - nginx
+    - app

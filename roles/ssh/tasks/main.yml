@@ -1,0 +1,10 @@
+- name: Get puclick key from file
+  set_fact:
+    key: "{{ lookup('file', '/home/asdf/.ssh/id_rsa.pub') }}"
+
+- name: Add public key to the server
+  ansible.builtin.authorized_key:
+    user: root
+    key: "{{ key }}"
+    manage_dir: yes
+    state: present
