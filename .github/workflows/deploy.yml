@@ -12,7 +12,10 @@ jobs:
 
     steps:
       - name: Add ssh key
-        run: "echo ${{ secrets.SSH_PRIVATE_KEY }} > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa"
+        run: |
+          mkdir -p ~/.ssh
+          printf "%s\n" "${{ SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
       - name: Chechout
         uses: actions/checkout@v6
       - name: deploy
