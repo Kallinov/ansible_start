@@ -13,4 +13,4 @@ jobs:
       - name: Chechout
         uses: actions/checkout@v6
       - name: deploy
-        run: rsync root@176.124.219.190 index.html /var/www/html/
+        run: rsync index.html root@176.124.219.190:/var/www/html/
